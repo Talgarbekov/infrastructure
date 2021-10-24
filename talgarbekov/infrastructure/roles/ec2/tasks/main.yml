@@ -1,0 +1,13 @@
+---
+# ansible-playbook IAAC/ec2.yaml 
+- name: Add ec2
+  hosts: localhost
+  tasks:
+  # Basic provisioning example
+  - amazon.aws.ec2:
+      key_name: laptop
+      instance_type: t2.micro
+      image: ami-074cce78125f09d61
+      wait: yes
+      count: 5
+      region: us-east-2

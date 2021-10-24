@@ -1,0 +1,11 @@
+---
+# tasks file for group
+
+  - name: Creating a DevOps group 
+    community.aws.iam:
+      iam_type: group
+      name: "{{ item }}"
+      state: present
+    loop:
+     - DevOps
+    register: DevOps

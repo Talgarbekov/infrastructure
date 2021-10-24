@@ -1,0 +1,13 @@
+# ansible-infrastructure-playbook  
+---
+  - name: Creating User 
+    community.aws.iam:
+      iam_type: user
+      name: "{{ item }}"
+      state: present
+      password: "1z2x3C4V"
+      access_key_state: create
+    loop:
+      - infrastructure_user
+
+
