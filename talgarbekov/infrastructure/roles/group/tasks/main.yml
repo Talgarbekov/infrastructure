@@ -1,11 +1,14 @@
----
 # tasks file for group
-
-  - name: Creating a DevOps group 
+---
+- name: Add IAM group
+  hosts: localhost
+  tasks:
+  - name: Create Two Groups, Devops and Luigi
     community.aws.iam:
       iam_type: group
       name: "{{ item }}"
       state: present
     loop:
-     - DevOps
-    register: DevOps
+     - Devops
+     - Luigi
+    register: new_groups

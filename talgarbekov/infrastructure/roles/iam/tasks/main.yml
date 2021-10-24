@@ -1,0 +1,21 @@
+---
+# tasks file for iam
+- name: Add IAM users
+  hosts: localhost
+  tasks:
+  - name: Create Users
+    community.aws.iam:
+      iam_type: user
+      name: "{{ item }}"
+      state: present
+      password: "3l6EUHxi2wL8XNR$$OUdJYES@wL#Fi6hCokl6IployJrJyRC7e"
+      access_key_state: create
+    loop:
+      - ansible_user1
+      - name: Delete users
+    community.aws.iam:
+      iam_type: user
+      name: "{{ item }}"
+      state: absent
+    loop:
+      - ansible_user1
